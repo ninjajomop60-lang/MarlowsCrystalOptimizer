@@ -56,10 +56,6 @@ public class InteractHandler implements ServerboundInteractPacket.Handler {
         if (player == null) {
             return;
         }
-
-        if (canDestroyCrystal(player)) {
-            destroyCrystal(crystal);
-        }
     }
 
     private boolean canDestroyCrystal(LocalPlayer player) {
@@ -104,10 +100,5 @@ public class InteractHandler implements ServerboundInteractPacket.Handler {
             }
         });
         return damageAdder.sum();
-    }
-
-    private void destroyCrystal(Entity crystal) {
-        crystal.remove(Entity.RemovalReason.KILLED);
-        crystal.gameEvent(GameEvent.ENTITY_DIE);
     }
 }
